@@ -28,7 +28,7 @@ public class RegisterFragment extends AppCompatActivity {
 
             //if(password==repassword) {
                 try {
-                     accountModel = new AccountModel(1, name.toString(), email.toString(), password.toString());
+                     accountModel = new AccountModel(1, name.getText().toString(), email.getText().toString(), password.getText().toString());
                     Log.i("success","acc is ok");
                     Toast.makeText(RegisterFragment.this, "registered successfully", Toast.LENGTH_SHORT).show();
                 } catch (Exception e) {
@@ -41,7 +41,7 @@ public class RegisterFragment extends AppCompatActivity {
                 DataBase dataBase = new DataBase(RegisterFragment.this);
                 boolean success = dataBase.addOne(accountModel);
                 Toast.makeText(RegisterFragment.this,"success="+success,Toast.LENGTH_SHORT).show();
-                Log.i("success","acc is in db"+ accountModel.toString());
+                Log.i("success","acc is in db"+ accountModel);
         });
 
 
