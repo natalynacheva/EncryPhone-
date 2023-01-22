@@ -28,9 +28,10 @@ public class RegisterFragment extends AppCompatActivity {
         repassword = findViewById(R.id.et_repassword);
 
         btnRegister.setOnClickListener(view -> {
-            AccountModel accountModel = null;
+            AccountModel accountModel;
+            Log.i("email123",email.getText().toString());
             // validations
-            if (eMailValidation(email.getText().toString())) {
+            if (!(eMailValidation(email.getText().toString()))) {
                 //email is invalid
                 Toast.makeText(this, "Please enter valid email", Toast.LENGTH_SHORT).show();
                 //stopping execution further
@@ -73,7 +74,7 @@ public class RegisterFragment extends AppCompatActivity {
             return false;
         }
         Pattern emailPattern = Pattern
-                .compile("^(.+)@(\\\\S+)$");
+                .compile("^(.+)@(.+)$");
         Matcher emailMatcher = emailPattern.matcher(emailString);
         return emailMatcher.matches();
     }
