@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -25,19 +26,22 @@ public class RegisterFragment extends AppCompatActivity {
         btnRegister.setOnClickListener(view -> {
             AccountModel accountModel;
 
-            if(password==repassword) {
+            //if(password==repassword) {
                 try {
                      accountModel = new AccountModel(1, name.toString(), email.toString(), password.toString());
+                    Log.i("success","acc is ok");
                     Toast.makeText(RegisterFragment.this, "registered successfully", Toast.LENGTH_SHORT).show();
                 } catch (Exception e) {
                     Toast.makeText(RegisterFragment.this, "Error with credentials", Toast.LENGTH_SHORT).show();
-                    accountModel = new AccountModel(-1,"error","error","error");
+                    accountModel = new AccountModel(-1, "error", "error", "error");
+                    Log.i("eror", "acc is not ok");
                 }
+               // }
 
                 DataBase dataBase = new DataBase(RegisterFragment.this);
                 boolean success = dataBase.addOne(accountModel);
                 Toast.makeText(RegisterFragment.this,"success="+success,Toast.LENGTH_SHORT).show();
-            }
+                Log.i("success","acc is in db"+ accountModel.toString());
         });
 
 
