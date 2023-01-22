@@ -3,9 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/background4"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".RegisterFragment">
+
+
 
     <TextView
         android:id="@+id/tv_logo"
@@ -16,16 +19,19 @@
         android:textSize="50sp"
         android:layout_marginStart="25dp"
         android:layout_marginBottom="5dp"
-        android:layout_marginTop="60dp"/>
+        android:layout_marginTop="60dp"
+        android:textColor="@color/white"/>
+
 
     <TextView
         android:id="@+id/tv_subtitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/tag"
-        android:textSize="17sp"
+        android:layout_width="244dp"
+        android:layout_height="57dp"
         android:layout_marginStart="25dp"
-        android:layout_marginBottom="50dp"/>
+        android:layout_marginBottom="50dp"
+        android:text="@string/tag"
+        android:textColor="@color/white"
+        android:textSize="17sp" />
 
     <EditText
         android:id="@+id/et_name"
@@ -38,7 +44,8 @@
         android:padding="15dp"
         android:inputType="textPersonName"
         android:background="@drawable/et_custom"
-        android:textSize="15sp" />
+        android:textSize="15sp"
+        android:textColor="@color/white"/>
 
     <EditText
         android:id="@+id/et_email"
@@ -51,7 +58,8 @@
         android:padding="15dp"
         android:inputType="textEmailAddress"
         android:background="@drawable/et_custom"
-        android:textSize="15sp" />
+        android:textSize="15sp"
+        android:textColor="@color/white"/>
 
     <EditText
         android:id="@+id/et_password"
@@ -64,7 +72,8 @@
         android:padding="15dp"
         android:inputType="textPassword"
         android:background="@drawable/et_custom"
-        android:textSize="15sp" />
+        android:textSize="15sp"
+        android:textColor="@color/white"/>
 
     <EditText
         android:id="@+id/et_repassword"
@@ -76,12 +85,14 @@
         android:padding="15dp"
         android:inputType="textPassword"
         android:background="@drawable/et_custom"
-        android:textSize="15sp" />
+        android:textSize="15sp"
+        android:textColor="@color/white"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:textColor="@color/white">
 
         <Button
             android:id="@+id/btn_register"
@@ -93,24 +104,23 @@
             android:layout_marginBottom="30dp"
             android:layout_centerInParent="true"
             android:textColor="@android:color/white"
-            android:text="@string/register"/>
-
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/ic_arrow_left"
-            android:layout_above="@id/swipeLeft"
-            android:layout_centerHorizontal="true"/>
+            android:text="@string/register"
+            />
 
         <TextView
-            android:id="@+id/swipeLeft"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/swipe_right_for_login"
-            android:textSize="15sp"
-            android:layout_centerHorizontal="true"
+            android:id="@+id/backToLogin"
+            android:layout_width="243dp"
+            android:layout_height="64dp"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="20dp"/>
+            android:layout_centerHorizontal="true"
+            android:layout_marginEnd="79dp"
+            android:layout_marginBottom="51dp"
+            android:gravity="center"
+            android:text="@string/back_to_login"
+            android:textColor="@color/white"
+            android:textSize="15sp"/>
+        />
 
     </RelativeLayout>
 

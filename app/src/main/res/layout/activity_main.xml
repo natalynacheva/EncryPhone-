@@ -6,6 +6,32 @@
     android:background="@drawable/background4"
     tools:context=".MainActivity">
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_register_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/password"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="248dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="@color/colorAccent"
+        android:text="Register here" />
+
+    <TextView
+        android:id="@+id/forgotpass2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/loginbtn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="138dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="Don't have an account?"
+        android:textColor="@color/white" />
+
     <TextView
         android:id="@+id/signin"
         android:layout_width="match_parent"
@@ -68,8 +94,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/loginbtn"
         android:layout_centerHorizontal="true"
-        android:layout_margin="20dp"
-        android:layout_marginTop="231dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:text="Forgot password?"
         android:textColor="@color/white" />

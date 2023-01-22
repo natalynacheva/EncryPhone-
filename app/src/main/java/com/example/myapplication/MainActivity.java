@@ -3,6 +3,7 @@ package com.example.myapplication;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -21,15 +22,29 @@ public class MainActivity extends AppCompatActivity {
     GoogleSignInClient gsc;
     ImageView googleButton;
 
+    Button btnRegister;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //google login here
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         gsc = GoogleSignIn.getClient(this, gso);
 
         googleButton = findViewById(R.id.google_btn);
         googleButton.setOnClickListener(view -> signIn());
+
+        // registration here
+        btnRegister = findViewById(R.id.btn_register_main);
+        btnRegister.setOnClickListener(view -> register());
+
+    }
+
+    private void register() {
+        finish();
+        Intent intent = new Intent(MainActivity.this,RegisterFragment.class);
+        startActivity(intent);
     }
 
     private void signIn() {
