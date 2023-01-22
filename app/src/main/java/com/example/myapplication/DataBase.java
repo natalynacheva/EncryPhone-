@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -42,4 +43,19 @@ public class DataBase extends SQLiteOpenHelper {
         long insert = sqLiteDatabase.insert(ACCOUNT_TABLE,null,cv);
         return insert != -1;
     }
+    //TODO this method is for setting if user wants to delete acc
+    /*.setOnClickListener(new AdapterView.OnClickListener(){
+    // @Override
+    // public void onClickListener(... )}
+    dataBase.deleteOne(user)*/
+
+    public boolean deleteOne(AccountModel accountModel){
+        SQLiteDatabase sqLiteDatabase= this.getWritableDatabase();
+        String queryString = "DELETE FROM " + ACCOUNT_TABLE + " WHERE " + COLUMN_ID + " = " + accountModel.getId();
+        Cursor cursor = sqLiteDatabase.rawQuery(queryString, null);
+        return cursor.moveToFirst();
+
+    }
+
+
 }
