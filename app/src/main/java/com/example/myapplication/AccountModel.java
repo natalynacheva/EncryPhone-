@@ -7,6 +7,7 @@ public class AccountModel {
 
     private String password;
 
+    private boolean isCurrentUser;
 
     public String getPassword() {
         return password;
@@ -21,13 +22,16 @@ public class AccountModel {
         this.name = name;
         this.email = email;
         this.password = password;
+        this.isCurrentUser = false;
     }
 
     public AccountModel(String email, String password) {
+        this.isCurrentUser = isCurrentUser;
         this.id = -2;
         this.email = email;
         this.password = password;
         this.name = "none";
+        this.isCurrentUser = false;
     }
 
     public int getId() {
@@ -54,12 +58,22 @@ public class AccountModel {
         this.email = email;
     }
 
+    public boolean isCurrentUser() {
+        return isCurrentUser;
+    }
+
+    public void setCurrentUser(boolean currentUser) {
+        isCurrentUser = currentUser;
+    }
+
     @Override
     public String toString() {
         return "AccountModel{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", isCurrentUser=" + isCurrentUser +
                 '}';
     }
 }

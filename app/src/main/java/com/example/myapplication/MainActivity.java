@@ -84,6 +84,10 @@ public class MainActivity extends AppCompatActivity {
         finish();
         Intent intent = new Intent(MainActivity.this,SecondActivity.class);
         Log.d("success","navigating to 2nd activity");
+
+        //updating current user before starting acctivity
+        RegisterFragment.dataBase.currentUser(email.getText().toString());
+
         startActivity(intent);
 
     }
@@ -98,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, "No such user. Try Registering", Toast.LENGTH_SHORT).show();
         }
     }
-    
+
 }
 
 

@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -37,7 +38,8 @@ public class SecondActivity extends AppCompatActivity {
             //name.setText(personName);
             email.setText(personEmail);
         }else{
-            //String personEmail = MainActivity.email;
+            String personEmail = RegisterFragment.dataBase.checkCurrUser();
+            Log.i("success","acc is in db"+ personEmail);
         }
         signOutButton.setOnClickListener(view -> signOut());
         syncDataButton.setOnClickListener(view -> syncData());
