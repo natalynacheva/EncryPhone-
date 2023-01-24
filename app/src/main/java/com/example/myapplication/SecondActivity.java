@@ -36,6 +36,8 @@ public class SecondActivity extends AppCompatActivity {
             String personEmail = acc.getEmail();
             //name.setText(personName);
             email.setText(personEmail);
+        }else{
+            //String personEmail = MainActivity.email;
         }
         signOutButton.setOnClickListener(view -> signOut());
         syncDataButton.setOnClickListener(view -> syncData());

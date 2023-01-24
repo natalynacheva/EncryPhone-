@@ -35,6 +35,7 @@
 
     <EditText
         android:id="@+id/et_name"
+        android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="@string/your_name"
@@ -43,12 +44,12 @@
         android:layout_marginBottom="10dp"
         android:padding="15dp"
         android:inputType="textPersonName"
-        android:background="@drawable/et_custom"
         android:textSize="15sp"
-        android:textColor="@color/white"/>
+/>
 
     <EditText
         android:id="@+id/et_email"
+        android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="@string/e_mail"
@@ -57,11 +58,10 @@
         android:layout_marginBottom="10dp"
         android:padding="15dp"
         android:inputType="textEmailAddress"
-        android:background="@drawable/et_custom"
-        android:textSize="15sp"
-        android:textColor="@color/white"/>
+        android:textSize="15sp" />
 
     <EditText
+
         android:id="@+id/et_password"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -71,9 +71,9 @@
         android:layout_marginBottom="10dp"
         android:padding="15dp"
         android:inputType="textPassword"
-        android:background="@drawable/et_custom"
+        android:background="@color/white"
         android:textSize="15sp"
-        android:textColor="@color/white"/>
+/>
 
     <EditText
         android:id="@+id/et_repassword"
@@ -84,9 +84,9 @@
         android:layout_marginRight="20dp"
         android:padding="15dp"
         android:inputType="textPassword"
-        android:background="@drawable/et_custom"
         android:textSize="15sp"
-        android:textColor="@color/white"/>
+        android:background="@color/white"
+/>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -107,19 +107,19 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:textColor="@android:color/white" />
 
-        <TextView
+        <Button
             android:id="@+id/backToLogin"
-            android:layout_width="243dp"
-            android:layout_height="64dp"
+            android:layout_width="254dp"
+            android:layout_height="89dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginEnd="79dp"
-            android:layout_marginBottom="51dp"
+            android:layout_marginEnd="70dp"
+            android:layout_marginBottom="24dp"
             android:gravity="center"
             android:text="@string/back_to_login"
             android:textColor="@color/white"
-            android:textSize="15sp"/>
+            android:textSize="15sp" />
         />
 
     </RelativeLayout>

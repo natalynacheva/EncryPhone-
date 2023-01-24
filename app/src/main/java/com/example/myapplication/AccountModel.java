@@ -20,8 +20,14 @@ public class AccountModel {
         this.id = id;
         this.name = name;
         this.email = email;
-
         this.password = password;
+    }
+
+    public AccountModel(String email, String password) {
+        this.id = -2;
+        this.email = email;
+        this.password = password;
+        this.name = "none";
     }
 
     public int getId() {

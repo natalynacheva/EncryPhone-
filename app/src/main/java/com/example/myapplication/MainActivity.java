@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -22,24 +23,35 @@ public class MainActivity extends AppCompatActivity {
     GoogleSignInClient gsc;
     ImageView googleButton;
 
-    Button btnRegister;
+     EditText email, password;
+    Button btnRegister, btnLogin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //normal login
+        email = findViewById(R.id.email);
+        password = findViewById(R.id.password);
+        btnLogin = findViewById(R.id.loginbtn);
+        btnLogin.setOnClickListener(view -> signIn());
+
 
         //google login here
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         gsc = GoogleSignIn.getClient(this, gso);
 
         googleButton = findViewById(R.id.google_btn);
-        googleButton.setOnClickListener(view -> signIn());
+        googleButton.setOnClickListener(view -> signInGoogle());
 
         // registration here
         btnRegister = findViewById(R.id.btn_register_main);
         btnRegister.setOnClickListener(view -> register());
 
+
+
     }
+
 
     private void register() {
         finish();
@@ -47,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void signIn() {
+    private void signInGoogle() {
         Intent signInIntent = gsc.getSignInIntent();
         startActivityForResult(signInIntent, 1000);
         Log.d("success","singing in");
@@ -75,6 +87,18 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
+
+    private void signIn() {
+        String check_email = email.getText().toString();
+        String check_pass = password.getText().toString();
+        if(RegisterFragment.dataBase.checkUserLogin(check_email,check_pass)){
+            Log.i("logging in", "registered user from app" + RegisterFragment.dataBase.checkUserLogin(check_email,check_pass));
+            navigateToSecondActivity();
+        } else{
+            Toast.makeText(MainActivity.this, "No such user. Try Registering", Toast.LENGTH_SHORT).show();
+        }
+    }
+    
 }
 
 

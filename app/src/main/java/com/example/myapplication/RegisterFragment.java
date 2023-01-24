@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -14,14 +15,15 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RegisterFragment extends AppCompatActivity {
-    Button btnRegister;
+    Button btnRegister, btnBackToMain;
     EditText name, email, password, repassword;
-
+    static DataBase dataBase;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_register);
         btnRegister = findViewById(R.id.btn_register);
+        btnBackToMain = findViewById(R.id.backToLogin);
         name = findViewById(R.id.et_name);
         email = findViewById(R.id.et_email);
         password = findViewById(R.id.et_password);
@@ -29,8 +31,14 @@ public class RegisterFragment extends AppCompatActivity {
 
         btnRegister.setOnClickListener(view -> {
             AccountModel accountModel;
-            Log.i("email123",email.getText().toString());
             // validations
+
+            if(TextUtils.isEmpty(name.getText().toString())){
+                //password is empty
+                Toast.makeText(this, "Please enter name",Toast.LENGTH_SHORT).show();
+                //stopping execution further
+                return;
+            }
             if (!(eMailValidation(email.getText().toString()))) {
                 //email is invalid
                 Toast.makeText(this, "Please enter valid email", Toast.LENGTH_SHORT).show();
@@ -54,7 +62,7 @@ public class RegisterFragment extends AppCompatActivity {
                     accountModel = new AccountModel(-1, "error", "error", "error");
                     Log.i("error", "acc is not ok");
                 }
-                DataBase dataBase = new DataBase(RegisterFragment.this);
+                dataBase = new DataBase(RegisterFragment.this);
                 boolean success = dataBase.addOne(accountModel);
                 Toast.makeText(RegisterFragment.this,"success="+success,Toast.LENGTH_SHORT).show();
                 Log.i("success","acc is in db"+ accountModel);
@@ -64,11 +72,14 @@ public class RegisterFragment extends AppCompatActivity {
             }
 
         });
-
-
+        btnBackToMain.setOnClickListener(View ->{
+            finish();
+            Intent intent = new Intent(RegisterFragment.this,MainActivity.class);
+            startActivity(intent);
+        });
     }
 
-    // email validity checker
+    // email validity checker with regex
     public static boolean eMailValidation(String emailString) {
         if (null == emailString || emailString.length() == 0) {
             return false;
